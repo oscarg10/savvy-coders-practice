@@ -10,7 +10,4 @@
 
 -**_Good, and you?_**
 
-[This is the website that I created](http://www.bhtenniscenter.com)
-
-![alt text](https://i.imgur.com/81qyN1y.jpg)
-
+[<img src="https://upload.wikimedia.org/wikipedia/commons/6/64/The_Puppy.jpg">](http://bhtenniscenter.com)
