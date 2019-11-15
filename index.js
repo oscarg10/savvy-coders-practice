@@ -1,11 +1,12 @@
-const allWork = "All work and no play makes Jack a dull";
+//Recursion
+function writePsychoBook(n) {
+  console.log("invoking psycho books is now", n);
 
-function writePsychoBook(num) {
-  let str = "";
-  for (i = 0; i <= num; i += 1) {
-    str += allWork;
+  if (n === 0) {
+    return "I am done";
   }
-  return str;
+
+  return `All work and no play makes Jack a dull boy ${writePsychoBook(n - 1)}`;
 }
 
-console.log(writePsychoBook(10));
+console.log(writePsychoBook(99));
