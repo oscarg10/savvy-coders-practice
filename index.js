@@ -1,50 +1,36 @@
-function myPow(num, exp) {
-  let ret = num;
+// Pass by reference and pass by value
 
-  for (let i = 1; i < exp; i += 1) {
-    ret *= num;
-  }
-  return ret;
+let x = 3;
+
+//y references its own copy of the number 3
+let y = x;
+
+function add1(n) {
+  return n + 1;
 }
 
-console.log(myPow(2, 3));
+//Primitives CANNOT be mutated (changed)
+//Primitives are passed by value
 
-//recursion
+// throws away its '3' and gets a whole new value of 4;
+x = add1(x);
+console.log("x after add1 is", x);
+console.log(y);
 
-function myPow(num, exp) {
+//Pass by reference
+//Objects can be mutated
+const me = {
+  name: "Mark"
+};
 
+const me2 = me;
 
-  if (exp === 0) { //starts at cero because it is the kick out.
-    return 1;
-  }
-  return (num *= myPow(num, exp - 1));
+function nameChanger(obj, newName) {
+  obj.name = newName;
 }
 
-console.log(myPow(2,3));
+// I pass in 'me' to nameChanger
+nameChanger(me, "Fred");
 
-/* factorial exercise
-for loop can count backwards
-*/
-function factorial(num) {
-  let ret = 1;
-
-  for (let i = num; i >= 1; i -= 1) {
-    ret *= i;
-  }
-
-  return ret;
-}
-
-console.log(factorial(4));
-
-//Recursive solution
-function factorial(num) {
-
-
-  if (num === 0) { //starts at cero because it is the kick out.
-    return 1;
-  }
-  return num * factorial(num,  - 1);
-}
-
-console.log(factorial(4));
+console.log(me);
+console.log(me2);
