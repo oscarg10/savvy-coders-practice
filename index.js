@@ -1,9 +1,11 @@
-//HW4 solution
-function initGreeting(greeting, name) {
-  return function() {
-    return greeting + name;
+function initGreeting(name, greeting) {
+  return function(time) {
+    return `${name} ${greeting}. The time is: ${time}`;
   };
 }
-const morningMartin = initGreeting("Good Morning, ", "Martin");
-//morningMartin became a function when initGreeting was assigned
-console.log(morningMartin());
+
+const eveningGeorge = initGreeting("George", "Evening");
+
+const time = new Date(Date.now());
+//getHours and getMinutes are methods that belong to 'Date'
+console.log(eveningGeorge(`${time.getHours()}:${time.getMinutes()}`));
