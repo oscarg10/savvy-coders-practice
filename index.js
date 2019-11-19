@@ -1,36 +1,24 @@
-// Pass by reference and pass by value
+// Fizz Buzz
+// If we pass a number that's divisible by both 5 and 3, log 'fizzbuzz'
+// If it's only divisible by 3, log 'fizz'
+//If it's only divisible by 5, log 'buzz'
+// If it is not divisible by either 3 ot 5 log the number
+// Loop over the number from 1 to 99
 
-let x = 3;
-
-//y references its own copy of the number 3
-let y = x;
-
-function add1(n) {
-  return n + 1;
+function initFizzBuzz(num1, num2) {
+  return function fizzBuzz46() {
+    for (let i = 0; i <= 99; i += 1) {
+      if (i % num1 === 0 && i % num2 === 0) {
+        console.log("fizzbuzz");
+      } else if (i % num2 === 0) {
+        console.log("buzz");
+      } else if (i % num1 === 0) {
+        console.log("Fizz");
+      } else {
+        console.log(i);
+      }
+    }
+  };
 }
-
-//Primitives CANNOT be mutated (changed)
-//Primitives are passed by value
-
-// throws away its '3' and gets a whole new value of 4;
-x = add1(x);
-console.log("x after add1 is", x);
-console.log(y);
-
-//Pass by reference
-//Objects can be mutated
-const me = {
-  name: "Mark"
-};
-
-const me2 = me;
-
-function nameChanger(obj, newName) {
-  obj.name = newName;
-}
-
-// I pass in 'me' to nameChanger
-nameChanger(me, "Fred");
-
-console.log(me);
-console.log(me2);
+const fizzBuzz46 = initFizzBuzz(4, 6);
+fizzBuzz46();
