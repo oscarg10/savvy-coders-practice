@@ -49,3 +49,7 @@ console.log(foodPlan);
 console.log(foodPlan.breakfastDrink());
 console.log(foodPlan.eatOut());
 console.log(foodPlan.eatDinner());
+
+
+// More examples
+
