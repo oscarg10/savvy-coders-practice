@@ -1,35 +1,53 @@
-// Instructor's solution
+const fruits = [
+  "apple",
+  "kiwi",
+  "pineapple",
+  "jackfruit", // index is 3
+  "dragonfruit",
+  "pineapple",
+  "mango",
+  "guava", // index is 7
+  "strawberry"
+];
 
-const numbers = [1, 2, 3, 4, 5, 6];
-const strings = ["hello", "world", "again"];
+fruits.splice(3, 3, "raspberries");
+const jackfruitIndex = fruits.indexOf("jackfruit");
+const guavaIndex = fruits.indexOf("guava");
 
-//concat does not mutate elements, but you can still join or combine arrays
-const numbersAndStrings = numbers.concat(strings);
+console.log(fruits);
+// console.log(jackfruitIndex, guavaIndex);
 
-//Function expression.
-function newArray(originalArr, stringUpdate, numberUpdate) {
-  return originalArr.map(el => {
-    if (typeof el === "string") {
-      return (el += stringUpdate);
-    }
-    return (el += numberUpdate);
-  });
-}
+// slice(start, end)
+// splits an array into smaller pieces
+const smallerArray = fruits.slice(jackfruitIndex);
+console.log("smallerArray is", smallerArray);
 
-console.log(newArray(numbersAndStrings, " Hello", 236));
+const bestFruits = fruits.slice(jackfruitIndex, guavaIndex + 1);
+console.log("bestFruits are", bestFruits);
 
-//arrow syntax does not have any this reference.
-//use map to add 1 to each number
+// includes returns true or false depending on
+// whether or not the argument is in the array
+const mysteryValue = fruits.includes("dragonfruit");
+console.log(mysteryValue);
 
-// const results = numbers.map(number => {
-//   return number + 1;
-// });
+// indexOf returns the index of the first occurence
+// of our argument in the array
+console.log(fruits.indexOf("pineapple"));
 
-// // numbers.forEach(number => {
-// //   console.log(number);
-// // });
+// indexOf returns the index of the last occurence
+// of our argument in the array
+console.log(fruits.lastIndexOf("pineapple"));
 
-// console.log(numbers);
-// console.log(results);
+const months = ["Jan", "March", "April", "June"];
 
-//MAP will always return an array of the same length of the original array
+// Insert 'Feb' WITHOUT removing anything
+months.splice(1, 0, "Feb");
+// inserts at index 1
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "June"]
+
+// Insert 'May' after removing the 1 thing at index 4
+months.splice(4, 1, "May");
+// replaces 1 element at index 4
+console.log(months);
+// expected output: Array ["Jan", "Feb", "March", "April", "May"]
