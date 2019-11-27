@@ -25,17 +25,21 @@
 
 const numbers = [1, 2, 3, 4, 5, 6];
 const strings = ["hello", "world", "again"];
-const newArray = [];
 
 //concat does not mutate elements, but you can still join or combine arrays
 const numbersAndStrings = numbers.concat(strings);
 
-for (let i = 0; i < numbersAndStrings.length; i += 1) {
-  if (typeof numbersAndStrings[i] === "string") {
-    newArray.push((numbersAndStrings[i] += "Hello, I am a string"));
-  } else {
-    newArray.push((numbersAndStrings[i] += 236));
+function newArray(originalArr, stringUpdate, numberUpdate) {
+  const newArray = [];
+
+  for (let i = 0; i < originalArr.length; i += 1) {
+    if (typeof originalArr[i] === "string") {
+      newArray.push((originalArr[i] += stringUpdate));
+    } else {
+      newArray.push((originalArr[i] += numberUpdate));
+    }
   }
+  return newArray;
 }
 
-console.log(newArray);
+console.log(newArray(numbersAndStrings, "Hello", 236));
