@@ -231,11 +231,9 @@ const users = [
   }
 ];
 
-// const usersWithPrefixedNames = users.map(user => `Mr. ${user.name}`);
-// console.log(usersWithPrefixedNames);
+//filters
 
-const usersWithNameEmailAndWebsite = users.map(
-  user => `${user.name}, ${user.email}, ${user.website}`
-);
+//filter works and returns booleans.
 
-console.log(usersWithNameEmailAndWebsite);
+const longNames = users.filter(user => user.username.length > 5);
+console.log(longNames);
