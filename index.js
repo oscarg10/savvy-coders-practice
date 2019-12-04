@@ -231,19 +231,27 @@ const users = [
   }
 ];
 
-// const companyData = users.map(user => ({
-//   name: user.name,
-//   "Company info": user.company
-// }));
+//Data is a named parameter that in this case happens to reference users
+function stripDataForSpecifiedfields(data, keys) {
+  return data.map(d =>
+    keys.map(key => {
+      return {
+        /**
+         * By using []s, we specify to JS we want to use the value of the variable field and not just
+         * "field"
+         */
 
-// console.log(companyData);
+        //Must use bracket notation in this case.
+        //Here d[key] would be, for example, user.name or user["name"]
+        [key]: d[key]
+      };
+    })
+  );
+}
 
-//Example of Chaining
-const shortenedDataWithLetterACompanies = users
-  .map(({ name, company }) => ({
-    name,
-    companyName: company.name
-  }))
-  .filter(user => user.companyName.startsWith("A"));
-
-console.log(shortenedDataWithLetterACompanies);
+const userNameAndPhones = stripDataForSpecifiedfields(users, [
+  "name",
+  "phone",
+  "address"
+]);
+console.log(userNameAndPhones);
