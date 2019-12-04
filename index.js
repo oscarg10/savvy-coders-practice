@@ -239,32 +239,30 @@ function mergeCompanies(data, acquiringCompany, acquiredCompany) {
     return d;
   });
 }
-const updatedUsersCompany = mergeCompanies(
-  users,
-  "Yost and Sons",
-  "Hoeger LLC"
-);
-console.log(updatedUsersCompany);
+// Said fxn. should return {name, address, name} ONLY for the users of that company.
 
-/**
- *'Hoeger LLC' has been acquired by "Yost and Son"
- *You may want to use an if statement
-//  */
-// const updatedCompanyName = users.map(user => {
-//   if (user.company.name === "Hoeger LLC") {
-//     user.company.name = "Yost and Sons";
-//   }
-//   return user;
+// const hoegerUsers = getUsersForCompany(users, "Yost and Sons").map(
+//   ({ name, address, phone }) => ({
+//     name,
+//     address,
+//     phone
+//   })
+// );
+// console.log(hoegerUsers);
+
+// const directories = users.map(user => {
+//   return {
+//     [`${user.company.name}`]: getUsersForCompany(users, user.company.name)
+//   };
 // });
 
-// console.log(updatedCompanyName);
+const directories = users.map(({ company }) => ({
+  [`${company.name}`]: getUsersForCompany(users, company.name)
+}));
 
-// const updatedCompanyNameRestructoring = users.map(({ company }) => {
-//   if (company.name === "Hoeger LLC") {
-//     company.name = "Yost and Sons";
-//   }
-
-//   return company;
-// });
-
-// console.log(updatedCompanyNameRestructoring);
+function getUsersForCompany(data, companyName) {
+  return data.filter(d => d.company.name === companyName);
+}
+directories.forEach(directory => {
+  console.log(directory);
+});
