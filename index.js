@@ -231,27 +231,40 @@ const users = [
   }
 ];
 
-//Data is a named parameter that in this case happens to reference users
-function stripDataForSpecifiedfields(data, keys) {
-  return data.map(d =>
-    keys.map(key => {
-      return {
-        /**
-         * By using []s, we specify to JS we want to use the value of the variable field and not just
-         * "field"
-         */
-
-        //Must use bracket notation in this case.
-        //Here d[key] would be, for example, user.name or user["name"]
-        [key]: d[key]
-      };
-    })
-  );
+function mergeCompanies(data, acquiringCompany, acquiredCompany) {
+  return data.map(d => {
+    if (d.company.name === acquiredCompany) {
+      d.company.name = acquiringCompany;
+    }
+    return d;
+  });
 }
+const updatedUsersCompany = mergeCompanies(
+  users,
+  "Yost and Sons",
+  "Hoeger LLC"
+);
+console.log(updatedUsersCompany);
 
-const userNameAndPhones = stripDataForSpecifiedfields(users, [
-  "name",
-  "phone",
-  "address"
-]);
-console.log(userNameAndPhones);
+/**
+ *'Hoeger LLC' has been acquired by "Yost and Son"
+ *You may want to use an if statement
+//  */
+// const updatedCompanyName = users.map(user => {
+//   if (user.company.name === "Hoeger LLC") {
+//     user.company.name = "Yost and Sons";
+//   }
+//   return user;
+// });
+
+// console.log(updatedCompanyName);
+
+// const updatedCompanyNameRestructoring = users.map(({ company }) => {
+//   if (company.name === "Hoeger LLC") {
+//     company.name = "Yost and Sons";
+//   }
+
+//   return company;
+// });
+
+// console.log(updatedCompanyNameRestructoring);
