@@ -231,9 +231,29 @@ const users = [
   }
 ];
 
-//filters
+//const objectData = users.map(user =>
+/**
+ * we use parenthesis to tell JS that
+ * this is an object and not interpret it as a function
+ */
+//   ({
+//   name: user.name,
+//   address: user.address,
+//   phone: user.phone
+// }));
 
-//filter works and returns booleans.
+// console.log(objectData);
 
-const longNames = users.filter(user => user.username.length > 5);
-console.log(longNames);
+//Object Destructoring
+
+//assumes and identifies the elements within the data and filters it.
+
+//You can also join two elements by using Template literals.
+
+const shortenedData = users.map(({ name, address, phone }) => ({
+  name,
+  address,
+  phone
+}));
+
+console.log(shortenedData);
