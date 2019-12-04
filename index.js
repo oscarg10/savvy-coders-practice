@@ -231,29 +231,16 @@ const users = [
   }
 ];
 
-//const objectData = users.map(user =>
-/**
- * we use parenthesis to tell JS that
- * this is an object and not interpret it as a function
- */
-//   ({
-//   name: user.name,
-//   address: user.address,
-//   phone: user.phone
-// }));
+const companyData = users.map(user => ({
+  name: user.name,
+  "Company info": user.company
+}));
 
-// console.log(objectData);
+console.log(companyData);
 
-//Object Destructoring
-
-//assumes and identifies the elements within the data and filters it.
-
-//You can also join two elements by using Template literals.
-
-const shortenedData = users.map(({ name, address, phone }) => ({
+const shortenedData = users.map(({ name, company }) => ({
   name,
-  address,
-  phone
+  companyName: company.name
 }));
 
 console.log(shortenedData);
