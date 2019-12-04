@@ -231,16 +231,19 @@ const users = [
   }
 ];
 
-const companyData = users.map(user => ({
-  name: user.name,
-  "Company info": user.company
-}));
+// const companyData = users.map(user => ({
+//   name: user.name,
+//   "Company info": user.company
+// }));
 
-console.log(companyData);
+// console.log(companyData);
 
-const shortenedData = users.map(({ name, company }) => ({
-  name,
-  companyName: company.name
-}));
+//Example of Chaining
+const shortenedDataWithLetterACompanies = users
+  .map(({ name, company }) => ({
+    name,
+    companyName: company.name
+  }))
+  .filter(user => user.companyName.startsWith("A"));
 
-console.log(shortenedData);
+console.log(shortenedDataWithLetterACompanies);
