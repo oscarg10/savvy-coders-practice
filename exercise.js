@@ -1,27 +1,37 @@
-const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-//This nums is the name of the array and it is in the global scope
+const students = [
+  {
+    name: "Jane",
+    score: 99
+  },
+  {
+    name: "Joe",
+    score: 88
+  },
+  { name: "Mark", score: 71 },
+  { name: "Sheamus", score: 55 },
+  { name: "Sanjay", score: 77 }
+];
 
 /**
- * TODO: Write a fxn. that grabs all of the odd elements in any ARRAY of NUMBERS.
- * HINT: An odd number, num, will RETURN TRUE when we test with: num % 2 === 1;
+ * TODO: Build a function that takes in an Array of people with scores and a specified threshold,
+ * and gives back a list of NAMES ONLY of the ones who scored less than that threshold.
+ *
+ * HINTS:
+ * 1. Try filtering out based on if the SCORE is less than the threshold.
+ * 2. Chain a map() to map over those filtered results but only return the 'name'.
+ * 3. You can use OBJECT DESTRUCTURING...or not.
  */
-
-//this nums NAMED PARAMETER does not directly reference nums in the global scope
-function filterOdds(nums) {
-  //=> replaces function keyword, braces, return keyword (if it is 1 statement)
-  return nums.filter(num => num % 2 === 1);
+function getLowScores(people, threshold) {
+  return people
+    .filter(student => student.score < threshold)
+    .map(student => student.name);
 }
 
-//Every function needs to have a return, otherwise it will return undefined.
-
-// TODO: Write a funtion that returns the sum of all the numbers in any ARRAY of NUMBERS.
-function numberSummer(nums) {
-  return nums.reduce((accumulator, currentValue) => accumulator + currentValue);
+// Destructuring version
+function getLowScoresDestructoring(people, threshold) {
+  return people
+    .filter(({ score }) => score < threshold)
+    .map(({ name }) => name);
 }
 
-// TODO: MAP over nums and triple each number.
-const tripleEachNum = nums.map(num => num * 3);
-
-console.log(numberSummer(nums));
-console.log(filterOdds(nums));
-console.log(tripleEachNum);
+console.log(getLowScores(students, 80));
