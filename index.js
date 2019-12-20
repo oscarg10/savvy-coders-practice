@@ -55,9 +55,7 @@ const heavyShipment = products
     return product;
   })
   .filter(product => product.weight > 25)
-  .reduce((totalWeight, current) => {
-    return (totalWeight += current.weight);
-  }, 0);
+  .reduce((totalWeight, current) => (totalWeight += current.weight), 0);
 
 console.log(heavyShipment);
 /**
