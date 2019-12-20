@@ -1,23 +1,16 @@
 {
-  "name": "OscarGordillo",
+  "name": "savvy-starter",
   "version": "1.0.0",
-  "description": "-_Hi!_",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/oscarg10/savvy-coders-practice.git"
+    "serve": "npx browser-sync start --server --files '*.html, *.css, *.js'"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/oscarg10/savvy-coders-practice/issues"
-  },
-  "homepage": "https://github.com/oscarg10/savvy-coders-practice#readme",
   "devDependencies": {
+    "browser-sync": "^2.26.7",
     "eslint": "^6.6.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-plugin-prettier": "^3.1.1",
@@ -25,6 +18,8 @@
     "stylelint": "^11.1.1",
     "stylelint-config-prettier": "^6.0.0",
     "stylelint-config-recommended": "^3.0.0",
-    "stylelint-prettier": "^1.1.1"
+    "stylelint-prettier": "^1.1.1",
+    "stylelint-vscode": "^7.0.0-6"
   }
 }
+
